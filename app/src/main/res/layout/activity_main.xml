@@ -225,12 +225,12 @@
 
 
     <RelativeLayout
+        android:id="@+id/middlebg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/middlebg"
         android:layout_below="@id/topbg"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:gravity="center">
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -242,9 +242,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="#EAE9E9"
-                app:strokeColor="#0C0F45">
+                app:strokeColor="#0C0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -254,8 +254,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -268,45 +268,45 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/total"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center" />
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
-                    
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/activecase"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:layout_weight="1"
                             android:text="@string/number"
-                            android:id="@+id/activecase"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
                         <TextView
+                            android:id="@+id/todayactive"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="10sp"
                             android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
                             android:text="@string/increment_number"
-                            android:id="@+id/todayactive"
                             android:textColor="@color/yellow"
-                            android:layout_weight="1">
+                            android:textSize="10sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
@@ -316,12 +316,13 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="#EAE9E9"
-                app:strokeColor="#0C0F45">
+                app:strokeColor="#0C0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -331,13 +332,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
-                            android:layout_width="9dp"
-                            android:layout_height="9dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_gravity="center"
                             android:background="@drawable/viewbg"
                             android:backgroundTint="@color/green" />
@@ -345,11 +346,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/active"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center" />
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -359,38 +360,33 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            android:text="@string/number"
                             android:id="@+id/totalcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/number"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
                         <TextView
+                            android:id="@+id/todaytotal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="10sp"
                             android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
                             android:text="@string/increment_number"
-                            android:id="@+id/todaytotal"
-                            android:textColor="@color/yellow"
-                            android:layout_weight="1">
+                            android:textColor="@color/green"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
 
                         </TextView>
-
-
-
-
-
 
 
                     </LinearLayout>
@@ -400,12 +396,13 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="#EAE9E9"
-                app:strokeColor="#0C0F45">
+                app:strokeColor="#0C0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -415,8 +412,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -429,11 +426,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/recovered"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center" />
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -443,31 +440,31 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/recoveredcase"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:layout_weight="1"
                             android:text="@string/number"
-                            android:id="@+id/recoveredcase"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
                         <TextView
+                            android:id="@+id/todayrecovered"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="10sp"
                             android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
                             android:text="@string/increment_number"
-                            android:id="@+id/todayrecovered"
                             android:textColor="@color/yellow"
-                            android:layout_weight="1">
+                            android:textSize="10sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
@@ -479,12 +476,13 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="#EAE9E9"
-                app:strokeColor="#0C0F45">
+                app:strokeColor="#0C0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -494,8 +492,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -508,11 +506,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/deaths"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center" />
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -522,31 +520,31 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/totaldeath"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:layout_weight="1"
                             android:text="@string/number"
-                            android:id="@+id/totaldeath"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
                         <TextView
+                            android:id="@+id/todaydeath"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="10sp"
                             android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
                             android:text="@string/increment_number"
-                            android:id="@+id/todaydeath"
                             android:textColor="@color/red"
-                            android:layout_weight="1">
+                            android:textSize="10sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
@@ -554,14 +552,10 @@
                     </LinearLayout>
 
 
-
                 </LinearLayout>
 
 
             </com.google.android.material.card.MaterialCardView>
-
-
-
 
 
         </GridLayout>
