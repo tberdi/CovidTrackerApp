@@ -11,6 +11,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/topbg"
         android:background="@drawable/relativebgg">
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20dp"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            android:textStyle="bold"
+            android:backgroundTint="@color/btnSignUp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/username"
+            android:textSize="10sp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,6 +54,8 @@
                     android:textStyle="bold">
 
                 </TextView>
+
+
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/ccp"

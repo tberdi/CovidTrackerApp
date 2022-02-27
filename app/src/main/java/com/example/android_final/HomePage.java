@@ -1,17 +1,28 @@
 package com.example.android_final;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 
 import org.eazegraph.lib.charts.PieChart;
@@ -37,6 +48,13 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
     private List<ModelClass> modelClassList2;
     PieChart mpieChart;
     private RecyclerView recyclerView;
+
+    private Button logout;
+    private FirebaseUser user;
+    private DatabaseReference reference;
+
+    private String userID;
+
    com.example.android_final.Adapter adapter;
 
 
@@ -66,6 +84,39 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(arrayAdapter);
+
+        logout=(Button) findViewById(R.id.logoutBtn);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(HomePage.this, MainActivity.class));
+            }
+        });
+
+        user=FirebaseAuth.getInstance().getCurrentUser();
+        reference= FirebaseDatabase.getInstance().getReference("Users");
+        userID=user.getUid();
+
+        final TextView nameTextView=(TextView) findViewById(R.id.username);
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile= snapshot.getValue(User.class);
+
+                if (userProfile!=null){
+                    String name=userProfile.name;
+
+                     nameTextView.setText(name);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomePage.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+            }
+        });
 
         ApiUtilities.getAPIInterface().getcountrydata().enqueue(new Callback<List<ModelClass>>() {
             @Override
